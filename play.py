@@ -11,3 +11,7 @@
 # Dealer
 # Deck
 # Card
+
+from deck import Deck
+
+deck = Deck()
