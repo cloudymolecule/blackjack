@@ -12,5 +12,8 @@ class Dealer:
         else:
             self.hand.append(new_cards)
 
-                
+    def return_cards(self):
+        hand = self.hand
+        self.hand = []
+        return hand
 
