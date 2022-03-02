@@ -21,9 +21,10 @@ player = Player('Jack')
 dealer = Dealer()
 
 game_on = True
+bet_placed = False
+cont_round = True
 
 while game_on:
-    bet_placed = False
     while bet_placed == False:
         bet_amount = int(input('How much do you want to bet? '))
         if bet_amount > player.balance:
@@ -39,9 +40,9 @@ while game_on:
 
     player_cards = '| '
     player_cards_value = 0
-    cont = True
+    
 
-    while player_cards_value < 21 and cont:
+    while player_cards_value < 21 and cont_round:
         for ind, card in enumerate(player.hand):
             player_cards = player_cards + f'{card.rank} of {card.suit} ''| '
             player_cards_value += card.value
@@ -54,16 +55,18 @@ while game_on:
                 player.get_paid(bet_amount)
             else:
                 print("Sorry, that's a bust")
-            cont = False
+            player_cards_value = 0
+            deck.get_cards(player.return_cards())
+            cont_round = False
         else:
-            inp = int(input('Do you want to hit or stop? 1 to hit, 0 to stop.'))
+            inp = int(input('Do you want to hit or stop? 1 to hit, 0 to stand.'))
         
-        
-        # cont = int(input('Do you want to hit or stop? 1 to hit, 0 to stop.'))
             if inp == 1:
                 player_cards = '| '
                 player.add_cards(deck.deal_card())
             else:
                 inp = False
-
-    game_on = False
+                cont_round = False
+                # game_on = False
+                # break
+    print('now it be the dealers turn')

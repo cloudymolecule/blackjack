@@ -20,5 +20,12 @@ class Deck:
     def deal_card(self):
         return self.all_cards.pop()
 
+    def get_cards(self, cards):
+        if type(cards) == type([]):
+            self.all_cards.extend(cards)
+        else:
+            self.all_cards.append(cards)
+        shuffle(self.all_cards)
+
     def __str__(self):
         return f'{len(self.all_cards)} card/s'
