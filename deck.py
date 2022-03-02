@@ -21,4 +21,4 @@ class Deck:
         return self.all_cards.pop()
 
     def __str__(self):
-        return f'There are {len(self.all_cards)} card/s in this deck'
+        return f'{len(self.all_cards)} card/s'
