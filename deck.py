@@ -10,8 +10,11 @@ class Deck:
 
         for suit in suits:
             for rank in ranks:
-                self.all_cards.append(Card(suit, rank))
+                # There are 6 decks in a casino Blackjack game, so 6 cards of each are created.
+                for num in range(6):
+                    self.all_cards.append(Card(suit, rank))
         
+        # All 312 cards are shuffled
         shuffle(self.all_cards)
 
     def deal_card(self):

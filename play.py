@@ -13,5 +13,13 @@
 # Card
 
 from deck import Deck
+from player import Player
+from dealer import Dealer
 
 deck = Deck()
+player = Player('Jack')
+dealer = Dealer()
+
+print(deck)
+print(player)
+print(dealer)
