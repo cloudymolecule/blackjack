@@ -8,7 +8,7 @@ class Player:
         self.balance -= amount
 
     def get_paid(self, amount):
-        self.balance += amount
+        self.balance += (amount + amount)
 
     def add_cards(self, new_cards):
         if type(new_cards) == type([]):
