@@ -2,7 +2,7 @@ class Player:
     def __init__(self, name):
         self.hand = []
         self.name = name
-        self.balance = 500
+        self.balance = 1000
 
     def bet(self, amount):
         self.balance -= amount
