@@ -1,4 +1,3 @@
-from asyncio import FastChildWatcher
 from curses.ascii import isdigit
 from deck import Deck
 from player import Player
@@ -19,6 +18,7 @@ player_final_value = 0
 dealer_final_value = 0
 dealer_play = True
 player_bust = False
+dealer_bust = False
 
 while game_on:
     while bet_placed == False:
@@ -128,20 +128,25 @@ while game_on:
             elif dealer_cards_value == 21:
                 dealer_play = False
             else:
-                print("Dealer busted!")
+                print("Dealer bust!")
                 dealer_play = False
+                dealer_bust = True
+        elif dealer_cards_value >= player_final_value:
+            dealer_play = False
         else:
             dealer_cards = '| '
             dealer.add_cards(deck.deal_card())
+            print('Dealer hits.')
 
         dealer_final_value = dealer_cards_value
     
     deck.get_cards(dealer.return_cards())
     
     cont_round = True
+    dealer_play = True
 
     result = ''
-    if player_bust == False and dealer_play == False:
+    if player_bust == False and dealer_bust == False:
         if player_final_value > dealer_final_value:
             result = f'{player.name} won'
             player.get_paid(bet_amount)
@@ -150,7 +155,7 @@ while game_on:
     elif player_bust == True:
         result = 'Dealer Won'
         print('')
-    elif player_bust == False and dealer_play == True:
+    elif player_bust == False and dealer_bust == True:
         result = f'{player.name} Won'
         player.get_paid(bet_amount)
 

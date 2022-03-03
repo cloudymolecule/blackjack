@@ -23,5 +23,3 @@ class Player:
 
     def __str__(self):
         return f'{self.name} has ${self.balance} in the wallet.'
-    # The player can stand or hit.
-# The player must be able to pick their betting amount.
