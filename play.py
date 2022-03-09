@@ -88,7 +88,7 @@ while game_on:
             while bad_input:
 
                 try:
-                    inp = int(input('Do you want to hit or stop? 1 to hit, 0 to stand.'))
+                    inp = int(input('Do you want to hit or stand? 1 to hit, 0 to stand. '))
                     if inp == 1 or inp == 0:
                         bad_input = False
                         break
